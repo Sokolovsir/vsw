@@ -25,13 +25,13 @@ margin-left: -500px;
 <head>
  	<title>КРЕСТИКИ - НОЛИКИ</title>
  </head>
- <body style="background: url(/Content/IMG/backpic.png)">
-     <div >
-         <input type="button" value="Начать игру" onclick="location.href='@Url.Action("Game", "Home", new {cell=0})    '" />
-     </div>
+<body style="background: url(/Content/IMG/backpic.png)">
+    <div>
+        <input type="button" style="width:100px" value="Начать игру" onclick="location.href='@Url.Action("Game", "Home", new { cell = 0 })    '" />
+        <br /><br />
+        <form action="Stat.aspx" target="_blank">
+            <button>Стастистика</button>
+        </form>
+    </div>
 
-     <div>
-
-     </div>
-     
- </body>
+</body>

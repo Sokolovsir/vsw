@@ -131,6 +131,7 @@ namespace SimpleGame.Controllers
                             ocel = temp;
                             xo[i] = "ooo";
                             gamestatus = "Победа O";
+                            SaveResult();
                             arrsum++;
                             i = 7; //exit
                         }
