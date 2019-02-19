@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SimpleGame.Models.CurrentGame>
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    #dop-block {
+  position: relative;
+  float: right;
+  right: 50%;
+}
+#block {
+  position: relative;
+  float: left;
+  left: 50%;
+}
+#wrap {
+width: 1000px;
+position: absolute;
+left: 50%;
+margin-left: -500px;
+}
+</style>
+
+<head>
+ 	<title>КРЕСТИКИ - НОЛИКИ</title>
+ </head>
+ <body style="background: url(/Content/IMG/backpic.png)">
+     <div >
+         <input type="button" value="Начать игру" onclick="location.href='@Url.Action("Game", "Home", new {cell=0})    '" />
+     </div>
+
+     <div>
+
+     </div>
+     
+ </body>

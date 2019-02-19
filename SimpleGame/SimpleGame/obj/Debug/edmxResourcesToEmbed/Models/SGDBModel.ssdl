@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище SGDBModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Хранилище SGDBModelContainer">
+    <EntitySet Name="CurrentGame" EntityType="Хранилище SGDBModel.CurrentGame" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="History" EntityType="Хранилище SGDBModel.History" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Result" EntityType="Хранилище SGDBModel.Result" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="CurrentGame">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Game" Type="int" />
+    <Property Name="Cell" Type="int" />
+    <Property Name="Value" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="History">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Game" Type="int" />
+    <Property Name="Time" Type="time" />
+    <Property Name="Cell" Type="int" />
+    <Property Name="Value" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Game" Type="int" />
+    <Property Name="Gamer" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gameresult" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+</Schema>

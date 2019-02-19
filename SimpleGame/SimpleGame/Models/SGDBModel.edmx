@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище SGDBModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Хранилище SGDBModelContainer">
+          <EntitySet Name="CurrentGame" EntityType="Хранилище SGDBModel.CurrentGame" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="History" EntityType="Хранилище SGDBModel.History" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Result" EntityType="Хранилище SGDBModel.Result" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="CurrentGame">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Game" Type="int" />
+          <Property Name="Cell" Type="int" />
+          <Property Name="Value" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Game" Type="int" />
+          <Property Name="Time" Type="time" />
+          <Property Name="Cell" Type="int" />
+          <Property Name="Value" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Game" Type="int" />
+          <Property Name="Gamer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gameresult" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SGDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SGDBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="CurrentGame" EntityType="SGDBModel.CurrentGame" />
+          <EntitySet Name="History" EntityType="SGDBModel.History" />
+          <EntitySet Name="Result" EntityType="SGDBModel.Result" />
+        </EntityContainer>
+        <EntityType Name="CurrentGame">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Game" Type="Int32" />
+          <Property Name="Cell" Type="Int32" />
+          <Property Name="Value" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Game" Type="Int32" />
+          <Property Name="Time" Type="Time" Precision="7" />
+          <Property Name="Cell" Type="Int32" />
+          <Property Name="Value" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Game" Type="Int32" />
+          <Property Name="Gamer" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Gameresult" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SGDBModelContainer" CdmEntityContainer="SGDBEntities">
+          <EntitySetMapping Name="CurrentGame">
+            <EntityTypeMapping TypeName="SGDBModel.CurrentGame">
+              <MappingFragment StoreEntitySet="CurrentGame">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Game" ColumnName="Game" />
+                <ScalarProperty Name="Cell" ColumnName="Cell" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="History">
+            <EntityTypeMapping TypeName="SGDBModel.History">
+              <MappingFragment StoreEntitySet="History">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Game" ColumnName="Game" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Cell" ColumnName="Cell" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Result">
+            <EntityTypeMapping TypeName="SGDBModel.Result">
+              <MappingFragment StoreEntitySet="Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Game" ColumnName="Game" />
+                <ScalarProperty Name="Gamer" ColumnName="Gamer" />
+                <ScalarProperty Name="Gameresult" ColumnName="Gameresult" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

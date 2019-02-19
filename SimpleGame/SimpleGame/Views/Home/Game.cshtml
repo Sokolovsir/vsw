@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Game";
+}
+
+<style>
+#parent{
+    position: absolute;
+    max-width:470px;
+    margin:0 auto;
+}
+.child{
+    position: relative;
+    margin: 5px 5px 5px 5px;
+    display: inline-block;
+    width: 142px;
+    height: 142px;
+}
+.b{
+    width: 140px;
+    height: 140px;
+    /*border: 1px solid #aaaaaa;*/
+}
+</style>
+<head>
+ 	<title>КРЕСТИКИ - НОЛИКИ</title>
+ </head>
+
+ <body style="background: url(/Content/IMG/backpic.png)">
+    <div id="parent">
+
+<input type="button" value="Новая игра" onclick="location.href='@Url.Action("Game", "Home", new {cell=0})    '" />
+<div class="parent">
+   @foreach (var item in Model)
+   {        
+        <form class="child"> 
+            @if (@item.Value.Equals("x"))
+            {
+            <button disabled class="b" style="background: url(/Content/IMG/x-transp.png)"></button> ;
+            }
+            
+            else if (@item.Value.Equals("o"))
+            {
+            <button disabled class="b" style="background: url(/Content/IMG/o-transp.png)"></button>;
+            }
+            else
+            {
+               if (ViewData["Gamestatus"] == "")
+                { 
+                    <button class="b" style="background: url(/Content/IMG/transp.png)" name="Cell" value="@item.Cell" href="@Url.Action("Game", "Home", new { cell = @item.Cell })"></button>;
+                }                
+            }
+               
+       </form>
+       
+    }
+</div>
+        <h2>@ViewData["Gamestatus"]</h2>
+
+    </div>
+</body>

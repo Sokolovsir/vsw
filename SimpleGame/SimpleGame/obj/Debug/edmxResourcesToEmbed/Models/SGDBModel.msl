@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище SGDBModelContainer" CdmEntityContainer="SGDBEntities">
+    <EntitySetMapping Name="CurrentGame">
+      <EntityTypeMapping TypeName="SGDBModel.CurrentGame">
+        <MappingFragment StoreEntitySet="CurrentGame">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Game" ColumnName="Game" />
+          <ScalarProperty Name="Cell" ColumnName="Cell" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="History">
+      <EntityTypeMapping TypeName="SGDBModel.History">
+        <MappingFragment StoreEntitySet="History">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Game" ColumnName="Game" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Cell" ColumnName="Cell" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Result">
+      <EntityTypeMapping TypeName="SGDBModel.Result">
+        <MappingFragment StoreEntitySet="Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Game" ColumnName="Game" />
+          <ScalarProperty Name="Gamer" ColumnName="Gamer" />
+          <ScalarProperty Name="Gameresult" ColumnName="Gameresult" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
