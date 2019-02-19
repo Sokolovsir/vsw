@@ -58,7 +58,8 @@ namespace SimpleGame.Controllers
                 X.Value = "x";
                 db.SaveChanges();
                 MarkLines(cell, "x");
-                if (db.CurrentGame.Where(x => x.Value != "").Count() != 9)
+
+                if (db.CurrentGame.Where(x => x.Value != "").Count() != 9 & gamestatus == "") //если есть свободные клетки, то продолжаем
                 {
                     int ocell = GetCelForO(cell);
                     var O = db.CurrentGame.Where(x => x.Cell == ocell).FirstOrDefault();
@@ -66,9 +67,13 @@ namespace SimpleGame.Controllers
                     db.SaveChanges();
                     MarkLines(ocell, "o");
                 }
-                else
+                else if (gamestatus == "")
                 {
                     gamestatus = "Ничья";
+                    SaveResult();
+                }
+                else
+                {
                     SaveResult();
                 }
             }
@@ -121,12 +126,11 @@ namespace SimpleGame.Controllers
                     for (n = 0; n < 3; n++)
                     {
                         temp = m[n];
-                        if (db.CurrentGame.Where(x => x.Cell == temp).FirstOrDefault().Value == "")
+                        if (db.CurrentGame.Where(x => x.Cell == temp).FirstOrDefault().Value == "" )
                         {
                             ocel = temp;
                             xo[i] = "ooo";
                             gamestatus = "Победа O";
-                            SaveResult();
                             arrsum++;
                             i = 7; //exit
                         }
@@ -172,7 +176,6 @@ namespace SimpleGame.Controllers
                     {
                         xo[i] = "xxx";
                         gamestatus = "Победа X";
-                        SaveResult();
 
                     }
 
